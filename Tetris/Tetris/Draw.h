@@ -8,7 +8,6 @@ private:
 public:
 	Draw();
 	~Draw();
-
 	void drawing(Logic& gameLogic, sf::RenderWindow& window, sf::Sprite& s);
 };
 

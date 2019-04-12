@@ -1,7 +1,7 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 
-const int M = 21;
+const int M = 20;
 const int N = 10;
 
 class Logic {
@@ -41,7 +41,7 @@ public:
 	void check();
 	void setElapsedTime(float);
 	inline void  resetParameters() { direction = 0; delay = 0.5; };
-	void end();
+	void end(sf::RenderWindow& window);
 
 
 };

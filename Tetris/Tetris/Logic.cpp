@@ -1,7 +1,7 @@
 #include "Logic.h"
 
-Logic::Logic() :direction(1), colorNumber(1), elapsedTime(0), delay(0.5), a{ 0 }, b{ 0 }{}
-Logic::~Logic() {}
+Logic::Logic() :direction(0), colorNumber(0), elapsedTime(0), delay(0.5), a{0}, b{0}{}
+Logic::~Logic(){}
 
 void Logic::getEvent(sf::RenderWindow& window) {
 	if (window.pollEvent(e)) {
@@ -29,7 +29,7 @@ void Logic::setElapsedTime(float time) {
 	elapsedTime += time;
 }
 
-void Logic::check() {
+void Logic::check(){
 	bool orderly = true;
 
 	for (int i = 0; i < 4; i++) {
@@ -40,10 +40,9 @@ void Logic::check() {
 	if (!orderly) {
 		for (int i = 0; i < 4; i++)a[i] = b[i];
 	}
-
 }
 
-void Logic::move() {
+void Logic::move(){
 	for (int i = 0; i < 4; i++) {
 		b[i] = a[i];
 		a[i].x += direction;
@@ -51,7 +50,7 @@ void Logic::move() {
 	check();
 }
 
-void Logic::rotate() {
+void Logic::rotate(){
 	Point p = a[1];
 	for (int i = 0; i < 4; i++)
 	{
@@ -63,7 +62,7 @@ void Logic::rotate() {
 	check();
 }
 
-void Logic::setTetrominos() {
+void Logic::setTetrominos(){
 	if (elapsedTime > delay) {
 		for (int i = 0; i < 4; i++) {
 			b[i] = a[i];
@@ -94,7 +93,7 @@ void Logic::setTetrominos() {
 	}
 }
 
-void Logic::rowBlasting() {
+void Logic::rowBlasting(){
 
 	int k = M - 1;
 	for (int i = k; i > 0; i--) {
@@ -107,9 +106,10 @@ void Logic::rowBlasting() {
 	}
 }
 
-void Logic::end() {
-	//Ha a 20. sorban is van elem vége ajátéknak
-
+void Logic::end(sf::RenderWindow& window) {
+	for (int i = 0; i < N; i++) {
+		if (matrix[0][i] && matrix[1][i] && matrix[2][i] && matrix[3][i] && matrix[4][i])window.close();
+	}
 }
 
 

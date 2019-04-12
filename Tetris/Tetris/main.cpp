@@ -36,6 +36,7 @@ int main() {
 		window.draw(background);
 		draw.drawing(gameLogic, window, s);
 		window.display();
+		gameLogic.end(window);
 	}
 	return 0;
 }
@@ -43,10 +44,9 @@ int main() {
 
 /*
 HIBÁK:
-	rózsaszin színû alakzat  szublimál- > ha 1-el kezdünk eltûnik
-	Nincs vége a játéknak
-	3-as okat Pörgeti mint a picsa -> 3x3-as területen
+		
+	3-as okat Pörgeti mint -> 3x3-as területen
 	4-es nem is engedi mozgatni
-	//Nála a Rotate egy bool paraméter volt nálam egy függvény ami kurvasokszor mrghívódik
+	//Nála a Rotate egy bool paraméter volt nálam egy függvény ami sokszor meghívódik
 
 */

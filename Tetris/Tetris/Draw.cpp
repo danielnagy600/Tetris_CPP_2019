@@ -9,7 +9,7 @@ void Draw::drawing(Logic& gameLogic, sf::RenderWindow& window, sf::Sprite& s) {
 			if (gameLogic.matrix[i][j]) {
 				s.setTextureRect(sf::IntRect(gameLogic.matrix[i][j] * 18, 0, 18, 18));
 				s.setPosition(j * 18, i * 18);
-				s.move(10, 30);
+				s.move(20, 30);
 				window.draw(s);
 			}
 		}
