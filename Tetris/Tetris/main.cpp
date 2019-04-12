@@ -29,7 +29,6 @@ int main() {
 		clock.restart();
 		gameLogic.setElapsedTime(time);
 		gameLogic.move();
-		gameLogic.rotate();
 		gameLogic.setTetrominos();
 		gameLogic.rowBlasting();
 		gameLogic.resetParameters();
@@ -40,13 +39,3 @@ int main() {
 	}
 	return 0;
 }
-
-
-/*
-HIBÁK:
-	1.  Fantom sprite
-	2.  3-as okat Pörgeti mint -> 3x3-as területen
-	3.  4-es nem is engedi mozgatni
-	//Nála a Rotate egy bool paraméter volt nálam egy függvény ami sokszor meghívódik
-
-*/
