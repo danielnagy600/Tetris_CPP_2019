@@ -3,7 +3,7 @@
 Draw::Draw() {}
 Draw::~Draw() {}
 
-void Draw::drawing(Logic& gameLogic, sf::RenderWindow& window, sf::Sprite& s) {
+void Draw::drawing(Logic& gameLogic,sf::RenderWindow& window, sf::Sprite& s) {
 	for (int i = 0; i < M; i++) {
 		for (int j = 0; j < N; j++) {
 			if (gameLogic.matrix[i][j]) {
@@ -21,7 +21,5 @@ void Draw::drawing(Logic& gameLogic, sf::RenderWindow& window, sf::Sprite& s) {
 		s.move(20, 30);
 		window.draw(s);
 	}
-
-
 }
 
