@@ -1,9 +1,9 @@
 #include "Logic.h"
 
-Logic::Logic() :direction(0), colorNumber(0), elapsedTime(0), delay(0.5), a{0}, b{0}{}
+Logic::Logic() :direction(0), colorNumber(1), elapsedTime(0), delay(0.5), a{ 1,1,1,0,2,0,0,0 }, b{0}{}
 Logic::~Logic(){}
 
-void Logic::getEvent(sf::RenderWindow& window) {
+void Logic::getEvent(sf::RenderWindow& window){
 	if (window.pollEvent(e)) {
 		if (e.type == sf::Event::Closed)window.close();
 		else if (e.type == sf::Event::KeyPressed) {
@@ -94,7 +94,6 @@ void Logic::setTetrominos(){
 }
 
 void Logic::rowBlasting(){
-
 	int k = M - 1;
 	for (int i = k; i > 0; i--) {
 		int count = 0;

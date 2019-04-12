@@ -44,9 +44,9 @@ int main() {
 
 /*
 HIBÁK:
-		
-	3-as okat Pörgeti mint -> 3x3-as területen
-	4-es nem is engedi mozgatni
+	1.  Fantom sprite
+	2.  3-as okat Pörgeti mint -> 3x3-as területen
+	3.  4-es nem is engedi mozgatni
 	//Nála a Rotate egy bool paraméter volt nálam egy függvény ami sokszor meghívódik
 
 */
