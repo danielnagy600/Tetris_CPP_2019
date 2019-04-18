@@ -1,6 +1,6 @@
 #include "Logic.hpp"
 
-Logic::Logic() :direction(0), colorNumber(1), elapsedTime(0), delay(0.5), a{ 1,1,1,0,2,0,0,0 }, b{ 0 }, scores(0){}
+Logic::Logic() :direction(0), colorNumber(1), elapsedTime(0), delay(0.5), a{ 1,1,1,0,2,0,0,0 }, b{0}, scores(0){}
 Logic::~Logic(){}
 
 void Logic::getEvent(sf::RenderWindow& window){
@@ -123,8 +123,3 @@ void Logic::end(sf::Sprite& s,sf::RenderWindow& window) {
 		}
 	}
 }
-
-
-
-
-

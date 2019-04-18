@@ -3,10 +3,24 @@
 Draw::Draw() {}
 Draw::~Draw() {}
 
+void Draw::setFont(sf::Text&sc, sf::Text& scores, sf::Font& font){
+	sc.setFillColor(sf::Color::White);
+	scores.setFillColor(sf::Color::White);
+	sc.Bold;
+	sc.setPosition(230, 30);
+	scores.setPosition(260, 60);
+	sc.setCharacterSize(20);
+	scores.setCharacterSize(20);
+	font.loadFromFile(FONT_NAME);
+	sc.setFont(font);
+	sc.setString("Scores");
+	scores.setFont(font);
+
+}
+
 void Draw::drawing(Logic& gameLogic,sf::RenderWindow& window, sf::Sprite& s, sf::Text& sc, sf::Text& score,int scores) {
-	
 	window.draw(sc);
-	score.setString(std::to_string(scores));
+	(score).setString(std::to_string(scores));
 	window.draw(score);
 
 

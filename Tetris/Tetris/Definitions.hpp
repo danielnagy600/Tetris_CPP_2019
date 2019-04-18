@@ -4,7 +4,6 @@
 #define SCREEN_WIDTH 320
 #define SCREEN_HEIGHT 480
 
-
 #define BACKGROUND_FILEPATH "images/Background.png"
 #define TETROMINO_FILEPATH "images/CubeRow.png"
 
