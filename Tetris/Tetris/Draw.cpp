@@ -1,9 +1,15 @@
-#include "Draw.h"
+#include "Draw.hpp"
 
 Draw::Draw() {}
 Draw::~Draw() {}
 
-void Draw::drawing(Logic& gameLogic,sf::RenderWindow& window, sf::Sprite& s) {
+void Draw::drawing(Logic& gameLogic,sf::RenderWindow& window, sf::Sprite& s, sf::Text& sc, sf::Text& score,int scores) {
+	
+	window.draw(sc);
+	score.setString(std::to_string(scores));
+	window.draw(score);
+
+
 	for (int i = 0; i < M; i++) {
 		for (int j = 0; j < N; j++) {
 			if (gameLogic.matrix[i][j]) {
@@ -12,6 +18,7 @@ void Draw::drawing(Logic& gameLogic,sf::RenderWindow& window, sf::Sprite& s) {
 				s.setPosition(j * 18, i * 18);
 				s.move(20, 30);
 				window.draw(s);
+
 			}
 		}
 	}
