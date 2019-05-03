@@ -32,7 +32,7 @@ int main() {
 	while (window.isOpen()) {
 		gameLogic.getEvent(window);
 		time = clock.getElapsedTime().asSeconds();
-		clock.restart();
+ 		clock.restart();
 		gameLogic.setElapsedTime(time);
 		gameLogic.move();
 		gameLogic.setTetrominos();

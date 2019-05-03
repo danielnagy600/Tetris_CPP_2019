@@ -41,6 +41,7 @@ public:
 	void getEvent(sf::RenderWindow&);
 	void waiting();
 	void move();
+	bool isRegular();
 	void rotate();
 	void setTetrominos();
 	int rowBlasting();

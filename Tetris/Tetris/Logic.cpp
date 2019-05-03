@@ -35,12 +35,7 @@ void Logic::setElapsedTime(float time) {
 
 void Logic::check(){
 	bool orderly = true;
-
-	for (int i = 0; i < 4; i++) {
-		if (a[i].x < 0 || a[i].x >= N || a[i].y >= M) orderly = false;
-		else if (matrix[a[i].y][a[i].x] != 0) orderly = false;
-	}
-
+	orderly = isRegular();
 	if (!orderly) {
 		for (int i = 0; i < 4; i++)a[i] = b[i];
 	}
@@ -56,8 +51,7 @@ void Logic::move(){
 
 void Logic::rotate(){
 	Point p = a[1];
-	for (int i = 0; i < 4; i++)
-	{
+	for (int i = 0; i < 4; i++){
 		int x = a[i].y - p.y;
 		int y = a[i].x - p.x;
 		a[i].x = p.x - x;
@@ -74,17 +68,12 @@ void Logic::setTetrominos(){
 		}
 
 		bool orderly = true;
-		for (int i = 0; i < 4; i++) {
-			if (a[i].x < 0 || a[i].x >= N || a[i].y >= M) orderly = false;
-			else if (matrix[a[i].y][a[i].x] != 0) orderly = false;
-		}
-
+		orderly = isRegular();
 
 		if (!orderly) {
 			for (int i = 0; i < 4; i++) {
 				matrix[b[i].y][b[i].x] = colorNumber;
 			}
-
 
 			colorNumber = rand() % 7 + 1;
 			int n = rand() % 7;
@@ -123,3 +112,13 @@ void Logic::end(sf::Sprite& s,sf::RenderWindow& window) {
 		}
 	}
 }
+
+bool  Logic::isRegular(){
+	bool orderly = true;
+	for (int i = 0; i < 4; i++) {
+		if (a[i].x < 0 || a[i].x >= N || a[i].y >= M) orderly = false;
+		else if (matrix[a[i].y][a[i].x] != 0) orderly = false;
+	}
+	return orderly;
+}
+

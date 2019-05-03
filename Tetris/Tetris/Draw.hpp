@@ -1,7 +1,6 @@
 #ifndef _DRAW_
 #define _DRAW_
-#include <SFML/Graphics.hpp>
-#include "Logic.hpp"
+
 #include "Definitions.hpp"
 
 class Draw {
