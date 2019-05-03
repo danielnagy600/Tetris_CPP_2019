@@ -1,11 +1,7 @@
-#include <SFML/Graphics.hpp>
 #include "Definitions.hpp"
-#include "Logic.hpp"
-#include "Draw.hpp"
-
 
 int main() {
-	srand(time(0));
+	srand(time(NULL));
 	float time;
 	int score;
 	Draw draw;

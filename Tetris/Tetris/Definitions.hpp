@@ -1,4 +1,11 @@
 #ifndef _DEFINITIONS_
+
+#include <SFML/Graphics.hpp>
+#include "Logic.hpp"
+#include "Draw.hpp"
+#include <stdlib.h>
+#include <stdio.h>
+
 #define _DEFINITIONS_
 
 #define SCREEN_WIDTH 320
