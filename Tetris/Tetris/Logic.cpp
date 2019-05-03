@@ -9,7 +9,7 @@ void Logic::getEvent(sf::RenderWindow& window){
 		else if (e.type == sf::Event::KeyPressed) {
 			switch (e.key.code) {
 			case sf::Keyboard::Down:
-				delay = 0.03;
+				delay = 0.03f;
 				break;
 			case sf::Keyboard::Up:
 				rotate();
@@ -39,6 +39,15 @@ void Logic::check(){
 	if (!orderly) {
 		for (int i = 0; i < 4; i++)a[i] = b[i];
 	}
+}
+
+bool  Logic::isRegular() {
+	bool orderly = true;
+	for (int i = 0; i < 4; i++) {
+		if (a[i].x < 0 || a[i].x >= N || a[i].y >= M) orderly = false;
+		else if (matrix[a[i].y][a[i].x] != 0) orderly = false;
+	}
+	return orderly;
 }
 
 void Logic::move(){
@@ -104,7 +113,7 @@ int Logic::rowBlasting(){
 
 void Logic::end(sf::Sprite& s,sf::RenderWindow& window) {
 	for (int i = 0; i < N; i++) {
-		if (matrix[0][i] && matrix[1][i] && matrix[2][i] && matrix[3][i] && matrix[4][i]) {
+		if (matrix[0][i]) {
 			window.draw(s);
 			window.display();
 			waiting();
@@ -112,13 +121,3 @@ void Logic::end(sf::Sprite& s,sf::RenderWindow& window) {
 		}
 	}
 }
-
-bool  Logic::isRegular(){
-	bool orderly = true;
-	for (int i = 0; i < 4; i++) {
-		if (a[i].x < 0 || a[i].x >= N || a[i].y >= M) orderly = false;
-		else if (matrix[a[i].y][a[i].x] != 0) orderly = false;
-	}
-	return orderly;
-}
-

@@ -15,14 +15,12 @@ void Draw::setFont(sf::Text&sc, sf::Text& scores, sf::Font& font){
 	sc.setFont(font);
 	sc.setString("Scores");
 	scores.setFont(font);
-
 }
 
 void Draw::drawing(Logic& gameLogic,sf::RenderWindow& window, sf::Sprite& s, sf::Text& sc, sf::Text& score,int scores) {
 	window.draw(sc);
 	(score).setString(std::to_string(scores));
 	window.draw(score);
-
 
 	for (int i = 0; i < M; i++) {
 		for (int j = 0; j < N; j++) {
