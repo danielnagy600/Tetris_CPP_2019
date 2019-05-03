@@ -45,7 +45,7 @@ bool  Logic::isRegular() {
 	bool orderly = true;
 	for (int i = 0; i < 4; i++) {
 		if (a[i].x < 0 || a[i].x >= N || a[i].y >= M) orderly = false;
-		else if (matrix[a[i].y][a[i].x] != 0) orderly = false;
+		else if (matrix[a[i].y][a[i].x]) orderly = false;
 	}
 	return orderly;
 }
