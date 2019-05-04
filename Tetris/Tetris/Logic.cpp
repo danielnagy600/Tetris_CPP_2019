@@ -76,10 +76,10 @@ void Logic::setTetrominos(){
 			a[i].y += 1;
 		}
 
-		bool orderly = true;
-		orderly = isRegular();
+		bool isNotGround = true;
+		isNotGround = isRegular();
 
-		if (!orderly) {
+		if (!isNotGround) {
 			for (int i = 0; i < 4; i++) {
 				matrix[b[i].y][b[i].x] = colorNumber;
 			}
@@ -103,9 +103,7 @@ int Logic::rowBlasting(){
 			if (matrix[i][j]) count++;
 			matrix[k][j] = matrix[i][j];
 		}
-		if (count < N) {
-			k--;
-		}
+		if (count < N)k--;
 		else scores += 10;
 	}
 	return scores;
