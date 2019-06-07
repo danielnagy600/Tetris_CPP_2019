@@ -1,5 +1,6 @@
 #include "Logic.hpp"
 
+
 Logic::Logic() :direction(0), colorNumber(1), elapsedTime(0), delay(0.5), a{ 1,1,1,0,2,0,0,0 }, b{0}, scores(0){}
 Logic::~Logic(){}
 
@@ -36,24 +37,22 @@ void Logic::setElapsedTime(float time) {
 void Logic::check(){
 	bool orderly = true;
 	orderly = isRegular();
-	if (!orderly) {
-		for (int i = 0; i < 4; i++)a[i] = b[i];
-	}
+	if (!orderly)for (int i = 0; i < 4; i++)a[i] = b[i];
 }
 
 bool  Logic::isRegular() {
 	bool orderly = true;
 	for (int i = 0; i < 4; i++) {
-		if (a[i].x < 0 || a[i].x >= N || a[i].y >= M) orderly = false;
-		else if (matrix[a[i].y][a[i].x]) orderly = false;
+		if (a[i].x < 0 || a[i].x >= N || a[i].y>=M)orderly = false;
+		else if (matrix[a[i].y][a[i].x])orderly = false;
 	}
 	return orderly;
 }
 
 void Logic::move(){
 	for (int i = 0; i < 4; i++) {
-		b[i] = a[i];
-		a[i].x += direction;
+		b[i] = a[i];			
+		a[i].x += direction; 
 	}
 	check();
 }

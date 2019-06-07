@@ -4,6 +4,7 @@ int main() {
 	srand(time(NULL));
 	float time;
 	int score;
+
 	Draw draw;
 	Logic gameLogic;
 	sf::Clock clock;
@@ -25,10 +26,12 @@ int main() {
 	sf::Sprite start_screen(t3);
 	sf::Sprite end_screen(t4);
 
+	//Splash state
 	window.draw(start_screen);
 	window.display();
 	gameLogic.waiting();
 
+	//Game Loop
 	while (window.isOpen()) {
 		gameLogic.getEvent(window);
 		time = clock.getElapsedTime().asSeconds();
