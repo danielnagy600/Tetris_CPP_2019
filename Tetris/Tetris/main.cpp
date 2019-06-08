@@ -16,11 +16,12 @@ int main() {
 	sf::Text sc,scores;
 	draw.setFont(sc,scores,font);
 
+	//Loading textures
 	t1.loadFromFile(TETROMINO_FILEPATH);
 	t2.loadFromFile(BACKGROUND_FILEPATH);
 	t3.loadFromFile(START_FILEPATH);
 	t4.loadFromFile(END_FILEPATH);
-
+	//Work with Sprite
 	sf::Sprite s(t1);
 	sf::Sprite background(t2);
 	sf::Sprite start_screen(t3);

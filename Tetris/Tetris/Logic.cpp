@@ -1,7 +1,7 @@
 #include "Logic.hpp"
 
 
-Logic::Logic() :direction(0), colorNumber(1), elapsedTime(0), delay(0.5), a{ 1,1,1,0,2,0,0,0 }, b{0}, scores(0){}
+Logic::Logic() :direction(0), colorNumber(1), elapsedTime(0), delay(0.5), a{ 0,0,0,1,1,1,0,2 }, b{0}, scores(0){}
 Logic::~Logic(){}
 
 void Logic::getEvent(sf::RenderWindow& window){
@@ -58,12 +58,13 @@ void Logic::move(){
 }
 
 void Logic::rotate(){
-	Point p = a[1];
+	Point o = a[1];				  //The point around which we rotate
+	Point t;
 	for (int i = 0; i < 4; i++){
-		int x = a[i].y - p.y;
-		int y = a[i].x - p.x;
-		a[i].x = p.x - x;
-		a[i].y = p.y + y;
+		t.x = a[i].x;
+		t.y = a[i].y;
+		a[i].x = -t.y + o.x + o.y;
+		a[i].y = t.x - o.x + o.y;
 	}
 	check();
 }
@@ -86,8 +87,8 @@ void Logic::setTetrominos(){
 			colorNumber = rand() % 7 + 1;
 			int n = rand() % 7;
 			for (int i = 0; i < 4; i++) {
-				a[i].x = tetriminos[n][i] % 2;
-				a[i].y = tetriminos[n][i] / 2;
+				a[i].x = tetrominos[n][i];
+				a[i].y = tetrominos[n][i+4];
 			}
 		}
 		elapsedTime = 0;
@@ -95,10 +96,10 @@ void Logic::setTetrominos(){
 }
 
 int Logic::rowBlasting(){
-	int k = M - 1;
+	int k = M-1;
 	for (int i = k; i > 0; i--) {
 		int count = 0;
-		for (int j = 0; j < N; j++) {
+		for (int j = 0; j < N; j++)		{
 			if (matrix[i][j]) count++;
 			matrix[k][j] = matrix[i][j];
 		}
